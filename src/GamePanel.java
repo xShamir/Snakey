@@ -176,6 +176,11 @@ public class GamePanel extends JPanel implements ActionListener
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
         FontMetrics metrics2 = getFontMetrics(g.getFont());
         g.drawString("Game Over!", (SCREEN_WIDTH - metrics2.stringWidth("Game Over!"))/2, SCREEN_HEIGHT/2);
+
+        g.setColor(Color.BLUE);
+        g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
+        FontMetrics metrics3 = getFontMetrics(g.getFont());
+        g.drawString("Press enter to retry!", (SCREEN_WIDTH - metrics3.stringWidth("Press enter to retry"))*2, g.getFont().getSize());
     }
 
     @Override
@@ -221,6 +226,16 @@ public class GamePanel extends JPanel implements ActionListener
                         direction = 'D';
                     }
                     break;
+                case KeyEvent.VK_ENTER:
+                    if(!running)
+                    {
+                        new GameFrame();
+
+                        GameFrame frame = SnakeGame.getFrame();
+
+                        frame.setVisible(false);
+                        frame.dispose();
+                    }
             }
         }
     }
