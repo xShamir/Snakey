@@ -1,2 +1,2 @@
 # Snakey
- 🐍 Snake Game written in Java with a scoring system & nice UI.
+ 🐍 Snake Game written in Java with a scoring & leveling system & nice UI.
