@@ -13,7 +13,7 @@ public class GamePanel extends JPanel implements ActionListener
     static final int SCREEN_HEIGHT = 600;
     static final int UNIT_SIZE = 25;
     static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT)/UNIT_SIZE;
-    static final int DELAY = 75;
+    static final int DELAY = 50;
 
     final int[] x = new int[GAME_UNITS];
     final int[] y = new int[GAME_UNITS];
@@ -76,8 +76,16 @@ public class GamePanel extends JPanel implements ActionListener
                     g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
                 } else
                 {
-                    g.setColor(new Color(45, 180, 0));
-                    g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                    if(applesEaten < 15)
+                    {
+                        g.setColor(new Color(45, 180, 0));
+                        g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                    }
+                    else
+                    {
+                        g.setColor(new Color(random.nextInt(0, 255), random.nextInt(0, 255), random.nextInt(0, 255)));
+                        g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+                    }
                 }
             }
 
@@ -170,7 +178,7 @@ public class GamePanel extends JPanel implements ActionListener
         g.setColor(Color.BLUE);
         g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
         FontMetrics metrics1 = getFontMetrics(g.getFont());
-        g.drawString("| " + applesEaten + " |", (SCREEN_WIDTH - metrics1.stringWidth("| " + applesEaten + " |"))/2, g.getFont().getSize());
+        g.drawString("| " + applesEaten + " |\n" + "Enter -> Retry", (SCREEN_WIDTH - metrics1.stringWidth("| " + applesEaten + " |\n" + "Enter -> Retry"))/2, g.getFont().getSize());
 
         g.setColor(Color.RED);
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
@@ -229,12 +237,12 @@ public class GamePanel extends JPanel implements ActionListener
                 case KeyEvent.VK_ENTER:
                     if(!running)
                     {
-                        new GameFrame();
-
                         GameFrame frame = SnakeGame.getFrame();
 
                         frame.setVisible(false);
                         frame.dispose();
+
+                        SnakeGame.setFrame();
                     }
             }
         }
