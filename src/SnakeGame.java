@@ -1,9 +1,16 @@
 public class SnakeGame
 {
 
+    static GameFrame frame;
+
     public static void main(String[] args)
     {
-        new GameFrame();
+        frame = new GameFrame();
+    }
+
+    static GameFrame getFrame()
+    {
+        return frame;
     }
 
 }
