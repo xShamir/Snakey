@@ -7,4 +7,6 @@ Snake is a video game genre where the player maneuvers a growing line that becom
 <img src="https://raw.githubusercontent.com/xShamir/Snakey/master/snake_game.png">
 
 ## Changelogs
-- Rainbow skin when ```Points >= 15;```
+- Added a Rainbow skin when ```Points >= 15;```
+- Added a HUD to show at the top of the screen.
+- Added a Restart Button.
