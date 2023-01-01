@@ -209,42 +209,55 @@ public class GamePanel extends JPanel implements ActionListener
         @Override
         public void keyPressed(KeyEvent event)
         {
-            switch(event.getKeyCode())
+
+            // Left key
+            if(event.getKeyCode() == KeyEvent.VK_LEFT || event.getKeyCode() == KeyEvent.VK_A)
             {
-                case KeyEvent.VK_LEFT:
-                    if(direction != 'R')
-                    {
-                        direction = 'L';
-                    }
-                    break;
-                case KeyEvent.VK_RIGHT:
-                    if(direction != 'L')
-                    {
-                        direction = 'R';
-                    }
-                    break;
-                case KeyEvent.VK_UP:
-                    if(direction != 'D')
-                    {
-                        direction = 'U';
-                    }
-                    break;
-                case KeyEvent.VK_DOWN:
-                    if(direction != 'U')
-                    {
-                        direction = 'D';
-                    }
-                    break;
-                case KeyEvent.VK_ENTER:
-                    if(!running)
-                    {
-                        GameFrame frame = SnakeGame.getFrame();
+                if(direction != 'R')
+                {
+                    direction = 'L';
+                }
+            }
 
-                        frame.setVisible(false);
-                        frame.dispose();
+            // Right key
+            if(event.getKeyCode() == KeyEvent.VK_RIGHT || event.getKeyCode() == KeyEvent.VK_D)
+            {
+                if(direction != 'L')
+                {
+                    direction = 'R';
+                }
+            }
 
-                        SnakeGame.setFrame();
-                    }
+            // Up key
+            if(event.getKeyCode() == KeyEvent.VK_UP || event.getKeyCode() == KeyEvent.VK_W)
+            {
+                if(direction != 'D')
+                {
+                    direction = 'U';
+                }
+            }
+
+            // Down key
+            if(event.getKeyCode() == KeyEvent.VK_DOWN || event.getKeyCode() == KeyEvent.VK_S)
+            {
+                if(direction != 'U')
+                {
+                    direction = 'D';
+                }
+            }
+
+            // Enter key
+            if(event.getKeyCode() == KeyEvent.VK_ENTER)
+            {
+                if(!running)
+                {
+                    GameFrame frame = SnakeGame.getFrame();
+
+                    frame.setVisible(false);
+                    frame.dispose();
+
+                    SnakeGame.setFrame();
+                }
             }
         }
     }
