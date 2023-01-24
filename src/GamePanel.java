@@ -179,7 +179,7 @@ public class GamePanel extends JPanel implements ActionListener
         g.setColor(Color.BLUE);
         g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 40));
         FontMetrics metrics1 = getFontMetrics(g.getFont());
-        g.drawString("| " + applesEaten + " |\n" + "Enter -> Retry", (SCREEN_WIDTH - metrics1.stringWidth("| " + applesEaten + " |\n" + "Enter -> Retry"))/2, g.getFont().getSize());
+        g.drawString("| " + applesEaten + " |\n" + "[ENTER] -> Retry", (SCREEN_WIDTH - metrics1.stringWidth("| " + applesEaten + " |\n" + "[ENTER] -> Retry"))/2, g.getFont().getSize());
 
         g.setColor(Color.RED);
         g.setFont(new Font("Ink Free", Font.BOLD, 75));
@@ -189,7 +189,7 @@ public class GamePanel extends JPanel implements ActionListener
         g.setColor(Color.BLUE);
         g.setFont(new Font(Font.SANS_SERIF, Font.BOLD, 20));
         FontMetrics metrics3 = getFontMetrics(g.getFont());
-        g.drawString("Press enter to retry!", (SCREEN_WIDTH - metrics3.stringWidth("Press enter to retry"))*2, g.getFont().getSize());
+        g.drawString("Press [ENTER] to retry!", (SCREEN_WIDTH - metrics3.stringWidth("Press [ENTER] to retry"))*2, g.getFont().getSize());
     }
 
     @Override
